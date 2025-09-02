@@ -8,7 +8,7 @@ let searchSummaryAtVeryBeginning: string;
 Given('the user is on the page',
     async function () {
         customersPage = new CustomersPage();
-        customersPage.open();
+        await customersPage.open();
         searchSummaryAtVeryBeginning = await customersPage.getSummaryText();
     });
 

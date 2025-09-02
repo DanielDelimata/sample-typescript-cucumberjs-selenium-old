@@ -1,4 +1,4 @@
-import { WebDriver, By } from 'selenium-webdriver';
+import { By } from 'selenium-webdriver';
 import { AbstractPageObject } from './AbstractPageObject';
 import { driver } from '../support/hook';
 

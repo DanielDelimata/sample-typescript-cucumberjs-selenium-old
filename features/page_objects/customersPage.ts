@@ -7,8 +7,6 @@ export class CustomersPage extends AbstractPageObject {
 
     private searchInput = By.id('search-input');
 
-    private searchColumn = By.id('search-column');
-
     private matchCase = By.id('match-case');
 
     private summary = By.id('table-resume');

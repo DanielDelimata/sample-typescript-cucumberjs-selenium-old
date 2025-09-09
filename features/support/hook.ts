@@ -2,17 +2,21 @@ import { After, AfterAll, BeforeAll, Status } from 'cucumber';
 import { Builder, WebDriver } from 'selenium-webdriver';
 import { Options } from 'selenium-webdriver/chrome';
 
-export let driver: WebDriver;
+export let driver!: WebDriver;
 
 BeforeAll(async () => {
+    const options = new Options()
+        .addArguments("--headless=new")
+        .addArguments("--window-size=640,480")
+        .addArguments("--disable-gpu")
+        .addArguments("--no-sandbox")
+        .addArguments("--disable-dev-shm-usage")
+        .addArguments("--disable-extensions")
+        .addArguments("--disable-infobars");
+
     driver = await new Builder()
-        .forBrowser('chrome')
-        .setChromeOptions(
-            new Options()
-                // .headless()
-                .windowSize({ width: 640, height: 480 })
-                .addArguments("--headless=new")
-        )
+        .forBrowser("chrome")
+        .setChromeOptions(options)
         .build();
     return driver.manage().window().maximize();
 });
